@@ -5,11 +5,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/global.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b0f75b1f9b.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.png">
+    <title>Breadth-First Search | Graph Search Algorithms</title>
+    <style>
+        .hero-img{
+            background-image: url('resources/grid2d.png');
+        }
+    </style>
 </head>
 
 <body>
-
+<div class="nav acrylic fira">
+    <a class="nav-text" href="index.html">
+        Graph Search Algorithms
+    </a>
+    <a class="nav-item" href="index.html">
+        Home
+    </a>
+    <a class="nav-item nav-active" href="bfs.html">
+        <div class="s-text">BFS</div>
+        <div class="l-text">Breadth-First Search</div>
+    </a>
+    <a class="nav-item" href="dijkstra.html">
+        <div class="s-text">Dijkstra</div>
+        <div class="l-text">The Dijkstra Algorithm</div>
+    </a>
+    <a class="nav-item" href="astar.html">
+        <div class="s-text">A*</div>
+        <div class="l-text">A* Heuristics</div>
+    </a>
+    <div class="nav-fill"></div>
+    <a class="nav-item" href="sources.html">
+        <div class="s-text"><i class="fa-solid fa-book"></i></div>
+        <div class="l-text"><i class="fa-solid fa-book"></i> Acknowledgements</div>
+    </a>
+    <a class="nav-item" href="https://github.com/encodeous/ICS3-2">
+        <div class="s-text"><i class="fa-brands fa-github"></i></div>
+        <div class="l-text"><i class="fa-brands fa-github"></i> View on GitHub</div>
+    </a>
+</div>
+<div class="container tserra">
+    <div style="height: 49px;"></div>
+    <div class="hero hero hero-img tserra">
+        <p class="acrylic-lite" style="padding: 25px">
+            Breadth-First Search
+        </p>
+    </div>
+    <div class="divider"></div>
+    <div class="content">
+        <div class="card">
+            <h3>Algorithm Summary</h3>
+            <hr>
+            <br>
+            <div class="c-section">
+                <strong>
+                    Difficulty:&nbsp;
+                </strong>
+                <div style="color: #07e107" class="fira">
+                    Simple
+                </div>
+            </div>
+            <div class="c-section">
+                <strong>
+                    Limitation:&nbsp;
+                </strong>
+                <div class="fira">
+                    Can only search non-weighted graphs
+                </div>
+            </div>
+            <div class="c-section">
+                <strong>
+                    Uses:&nbsp;
+                </strong>
+                <div class="fira">
+                    Finding shortest path in non-weighted graph, Solving mazes, and testing for connectivity.
+                </div>
+            </div>
+            <div class="c-section">
+                <strong>
+                    Time Complexity:&nbsp;
+                </strong>
+                <div class="fira" style="font-style: oblique">
+                    O(N)
+                </div>
+            </div>
+        </div>
+        <h1></h1>
+    </div>
+</div>
 </body>
 
 </html>

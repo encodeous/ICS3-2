@@ -22,7 +22,8 @@ html, body {
 }
 
 .hero {
-    background-image: url('../resources/map.png');
+    background-attachment: fixed;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -45,6 +46,10 @@ html, body {
     width: 100%;
     position: fixed;
     z-index: 100;
+}
+
+.nav-active{
+    background-color: #464544;
 }
 
 .nav-fill {
@@ -73,7 +78,7 @@ html, body {
     background-color: #464544;
     color: white;
     margin: 0;
-    padding: 0 50px 20px 50px;
+    padding: 20px 50px 20px 50px;
     overflow: hidden;
 }
 
@@ -153,4 +158,17 @@ p a, .t-link{
     .l-text{
 
     }
+}
+
+.card{
+    background-color: #3d3d3c;
+    padding: 5px 20px 20px 20px;
+    margin-top: 30px;
+}
+
+.c-section{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }
