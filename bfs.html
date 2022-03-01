@@ -13,91 +13,152 @@
     <link rel="icon" type="image/x-icon" href="resources/favicon.png">
     <title>Breadth-First Search | Graph Search Algorithms</title>
     <style>
-        .hero-img{
+        .hero-img {
             background-image: url('resources/grid2d.png');
         }
     </style>
 </head>
 
 <body>
-<div class="nav acrylic fira">
-    <a class="nav-text" href="index.html">
-        Graph Search Algorithms
-    </a>
-    <a class="nav-item" href="index.html">
-        Home
-    </a>
-    <a class="nav-item nav-active" href="bfs.html">
-        <div class="s-text">BFS</div>
-        <div class="l-text">Breadth-First Search</div>
-    </a>
-    <a class="nav-item" href="dijkstra.html">
-        <div class="s-text">Dijkstra</div>
-        <div class="l-text">The Dijkstra Algorithm</div>
-    </a>
-    <a class="nav-item" href="astar.html">
-        <div class="s-text">A*</div>
-        <div class="l-text">A* Heuristics</div>
-    </a>
-    <div class="nav-fill"></div>
-    <a class="nav-item" href="sources.html">
-        <div class="s-text"><i class="fa-solid fa-book"></i></div>
-        <div class="l-text"><i class="fa-solid fa-book"></i> Acknowledgements</div>
-    </a>
-    <a class="nav-item" href="https://github.com/encodeous/ICS3-2">
-        <div class="s-text"><i class="fa-brands fa-github"></i></div>
-        <div class="l-text"><i class="fa-brands fa-github"></i> View on GitHub</div>
-    </a>
-</div>
-<div class="container tserra">
-    <div style="height: 49px;"></div>
-    <div class="hero hero hero-img tserra">
-        <p class="acrylic-lite" style="padding: 25px">
-            Breadth-First Search
-        </p>
+    <div class="nav acrylic fira">
+        <a class="nav-text" href="index.html">
+            Graph Search Algorithms
+        </a>
+        <a class="nav-item" href="index.html">
+            Home
+        </a>
+        <a class="nav-item nav-active" href="bfs.html">
+            <div class="s-text">BFS</div>
+            <div class="l-text">Breadth-First Search</div>
+        </a>
+        <a class="nav-item" href="dijkstra.html">
+            <div class="s-text">Dijkstra</div>
+            <div class="l-text">The Dijkstra Algorithm</div>
+        </a>
+        <a class="nav-item" href="astar.html">
+            <div class="s-text">A*</div>
+            <div class="l-text">A* Heuristics</div>
+        </a>
+        <div class="nav-fill"></div>
+        <a class="nav-item" href="sources.html">
+            <div class="s-text"><i class="fa-solid fa-book"></i></div>
+            <div class="l-text"><i class="fa-solid fa-book"></i> Acknowledgements</div>
+        </a>
+        <a class="nav-item" href="https://github.com/encodeous/ICS3-2">
+            <div class="s-text"><i class="fa-brands fa-github"></i></div>
+            <div class="l-text"><i class="fa-brands fa-github"></i> View on GitHub</div>
+        </a>
     </div>
-    <div class="divider"></div>
-    <div class="content">
-        <div class="card">
-            <h3>Algorithm Summary</h3>
-            <hr>
-            <br>
-            <div class="c-section">
-                <strong>
-                    Difficulty:&nbsp;
-                </strong>
-                <div style="color: #07e107" class="fira">
-                    Simple
-                </div>
-            </div>
-            <div class="c-section">
-                <strong>
-                    Limitation:&nbsp;
-                </strong>
-                <div class="fira">
-                    Can only search non-weighted graphs
-                </div>
-            </div>
-            <div class="c-section">
-                <strong>
-                    Uses:&nbsp;
-                </strong>
-                <div class="fira">
-                    Finding shortest path in non-weighted graph, Solving mazes, and testing for connectivity.
-                </div>
-            </div>
-            <div class="c-section">
-                <strong>
-                    Time Complexity:&nbsp;
-                </strong>
-                <div class="fira" style="font-style: oblique">
-                    O(N)
-                </div>
-            </div>
+    <div class="container tserra">
+        <div style="height: 49px;"></div>
+        <div class="hero hero hero-img tserra">
+            <p class="acrylic-lite" style="padding: 25px">
+                Breadth-First Search
+            </p>
         </div>
-        <h1></h1>
+        <div class="divider"></div>
+        <div class="content">
+            <div class="card">
+                <h3>Algorithm Summary</h3>
+                <hr>
+                <br>
+                <div class="c-section">
+                    <strong>
+                        Difficulty:&nbsp;
+                    </strong>
+                    <div style="color: #07e107" class="fira">
+                        Simple
+                    </div>
+                </div>
+                <div class="c-section">
+                    <strong>
+                        Limitation:&nbsp;
+                    </strong>
+                    <div class="fira">
+                        Can only search non-weighted graphs
+                    </div>
+                </div>
+                <div class="c-section">
+                    <strong>
+                        Uses:&nbsp;
+                    </strong>
+                    <div class="fira">
+                        Finding shortest path in non-weighted graph, Solving mazes, and testing for connectivity.
+                    </div>
+                </div>
+                <div class="c-section">
+                    <strong>
+                        Time Complexity:&nbsp;
+                    </strong>
+                    <div class="fira" style="font-style: oblique">
+                        O(N)
+                    </div>
+                </div>
+            </div>
+            <h1 id="sect1">1. What is Breadth-First Search?</h1>
+            <p class="p-text fira">
+                Breadth-First Search, or BFS (which is what I will use to refer to this algorithm) provides a quick way
+                to search through an unweighted graph to find the shortest path. It operates in <i>O(N)</i> time, where
+                <i>N</i> is the number of nodes in the graph. However, this algorithm breaks when the distance between
+                nodes are more than a cost of 1.
+            </p>
+            <h1 id="sect2">2. Applications of BFS</h1>
+            <p class="p-text fira">
+                BFS can be applied in many different circumstances. It can be used to solve mazes, since the distance
+                between each cell in the maze is always the same (assuming you can only travel in axis-aligned
+                directions). Other applications can be checking whether two nodes are connected to each other, <i>where
+                    we
+                    don't care about the distance between nodes</i>.
+            </p>
+            <h1 id="sect3">3. How does BFS work?</h1>
+            <p class="p-text fira">
+                BFS works by <i>Flood-filling</i> nodes. Lets say we have an initial node <i>N</i>, we can iterate
+                through all of the nodes that are connected to node <i>N</i>, then mark them as visited. For all of the
+                new nodes that we marked as visited, we execute the above procedure, making sure we do not visit any
+                node more than once. One key detail is that the algorithm must ensure that the nodes marked as <i>to
+                    be</i> visited should be visited in the order they are marked. This ensures that the distance
+                travelled from the source node(s) to that node is the minimal possible distance.
+            </p>
+            <h1 id="sect4">4. A visual demonstration</h1>
+            <p class="p-text fira">
+                Here is our initial graph, we start at node 1, and have it marked as visited. Our target is node 3.
+            </p>
+            <div class="img-wrapper">
+                <img class="w-img" src="resources/graph_bfs_1.png" alt="A Graph">
+                <p class="caption">
+                    The weights have been set to 1 due to the limitation of the algorithm.
+                </p>
+            </div>
+            <p class="p-text fira">
+                In the second iteration, we have visited two adjacent nodes.
+            </p>
+            <div class="img-wrapper">
+                <img class="w-img" src="resources/graph_bfs_2.png" alt="A Graph">
+                <p class="caption">
+                    The nodes that are bolded are considered as visited.
+                </p>
+            </div>
+            <p class="p-text fira">
+                Third iteration:
+            </p>
+            <div class="img-wrapper">
+                <img class="w-img" src="resources/graph_bfs_3.png" alt="A Graph">
+            </div>
+            <p class="p-text fira">
+                Finally, we reach our destination in the fourth iteration.
+            </p>
+            <div class="img-wrapper">
+                <img class="w-img" src="resources/graph_bfs_4.png" alt="A Graph">
+            </div>
+            <h1 id="sect5">5. A trivial modification</h1>
+            <p class="p-text fira">
+                The algorithm shown above cannot <i>(yet)</i> measure the distance between the starting and ending
+                nodes, but a simple modification can be added to track the distance. One such modification can be to
+                simply track the previous node from which the current node was visited. Then, we can count the number of
+                paths the algorithm has traversed through to find the distance.
+            </p>
+        </div>
     </div>
-</div>
 </body>
 
 </html>
