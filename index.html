@@ -8,46 +8,78 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b0f75b1f9b.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.png">
     <title>Home | Graph Search Algorithms</title>
 </head>
 
 <body>
     <div class="nav acrylic fira">
-        <a class="nav-text" href="/">
+        <a class="nav-text" href="index.html">
             Graph Search Algorithms
         </a>
-        <a class="nav-item" href="/">
+        <a class="nav-item" href="index.html">
             Home
         </a>
-        <div class="nav-item">
-            Breadth-First Search
-        </div>
-        <div class="nav-item">
-            The Dijkstra Algorithm
-        </div>
-        <div class="nav-item">
-            A* Heuristics
-        </div>
+        <a class="nav-item" href="bfs.html">
+            <div class="s-text">BFS</div>
+            <div class="l-text">Breadth-First Search</div>
+        </a>
+        <a class="nav-item" href="dijkstra.html">
+            <div class="s-text">Dijkstra</div>
+            <div class="l-text">The Dijkstra Algorithm</div>
+        </a>
+        <a class="nav-item" href="astar.html">
+            <div class="s-text">A*</div>
+            <div class="l-text">A* Heuristics</div>
+        </a>
         <div class="nav-fill"></div>
+        <a class="nav-item" href="sources.html">
+            <div class="s-text"><i class="fa-solid fa-book"></i></div>
+            <div class="l-text"><i class="fa-solid fa-book"></i> Acknowledgements</div>
+        </a>
         <a class="nav-item" href="https://github.com/encodeous/ICS3-2">
-            <i class="fa-brands fa-github"></i>
-            View on GitHub
+            <div class="s-text"><i class="fa-brands fa-github"></i></div>
+            <div class="l-text"><i class="fa-brands fa-github"></i> View on GitHub</div>
         </a>
     </div>
     <div class="container tserra">
         <div style="height: 49px;"></div>
         <div class="hero tserra">
             <p class="acrylic-lite" style="padding: 25px">
-                What are Graph Search Algorithms?
+                Graph Search Algorithms
             </p>
         </div>
-        <div class="divider" d></div>
+        <div class="divider"></div>
         <div class="content">
-            <h3>
-                A Computer's Understanding of the world.
-            </h3>
+            <h1 id="sect1">1. Computers aren't magic.</h1>
+            <p class="p-text fira">
+                People tend to believe that computers can solve anything. While this may be partially true, Computers are limited to what people can teach it to do. In certain scenarios, for example, we need to find the shortest path between two cities, we need a way to represent the data. This is where <i>graphs</i> come in. Graphs are able to represent connections between distinct <i>nodes</i>. A connection between two hypothetical cities can be stored in an <i>edge</i>, with each city being a <i>node</i>.
+            </p>
+            <div class="img-wrapper">
+                <img class="w-img" src="resources/graph_1.png" alt="A Graph">
+                <p class="caption">
+                    <b id="fig1">Figure 1.</b>
+                    This is a graph. The circles are nodes, and the lines are edges. The numbers on the lines are weights.
+                </p>
+            </div>
+            <h1 id="sect2">2. A step in the right direction.</h1>
+            <p class="p-text fira">
+                Now that a computer can understand what these connections are, we need to come up with an algorithm to <i>process</i> the graph. Typical usages for graphs include trying to find the <a href="https://en.wikipedia.org/wiki/Shortest_path_problem">shortest distance between nodes</a>, the <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">minimum edges to connect all nodes</a>, or <a href="https://en.wikipedia.org/wiki/Topological_sorting">building dependency graphs</a>. On this website, we will explore the algorithms that can find the shortest path between nodes or cities. Along the way, we will explore the different restrictions that each algorithm has, and the types of problems it can solve.
+            </p>
+            <h1 id="sect3">3. A fork in the path.</h1>
+            <p class="p-text fira">
+                This website will cover 3 different algorithms and how they can be applied to solve a problem. For the sake of simplicity, we will ask all 3 of these algorithms what the shortest path from node <i>1</i> to node <i>3</i> is in the graph on <a href="#fig1">Figure 1</a>.
+            </p>
+            <p class="fira">
+                The algorithms are:
+            </p>
+            <ol>
+                <li><a class="t-link" href="bfs.html">Breadth-First Search</a></li>
+                <li><a class="t-link" href="dijkstra.html">The Dijkstra Algorithm</a></li>
+                <li><a class="t-link" href="astar.html">The A* Algorithm</a></li>
+            </ol>
         </div>
     </div>
 </body>
