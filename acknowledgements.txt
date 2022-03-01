@@ -1,2 +1,0 @@
-Map image: https://blog.mapbox.com/dark-maps-for-dark-theme-in-android-q-f23b3310f69a
-2d grid: https://stackoverflow.com/questions/30842755/how-can-i-render-an-infinite-2d-grid-in-glsl
