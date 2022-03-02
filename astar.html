@@ -1,136 +1,151 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/b0f75b1f9b.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="resources/favicon.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b0f75b1f9b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.png" />
     <title>A* Heuristics | Graph Search Algorithms</title>
     <style>
-        .hero-img {
-            background-image: url('resources/map2.jpg');
-        }
-        #comparison{
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
+      .hero-img {
+        background-image: url("resources/map2.jpg");
+      }
+      #comparison {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-<div class="nav acrylic fira">
-    <a class="nav-text" href="index.html">
-        Graph Search Algorithms
-    </a>
-    <a class="nav-item" href="index.html">
-        Home
-    </a>
-    <a class="nav-item" href="bfs.html">
+  <body>
+    <div class="nav acrylic fira">
+      <a class="nav-text" href="index.html"> Graph Search Algorithms </a>
+      <a class="nav-item" href="index.html"> Home </a>
+      <a class="nav-item" href="bfs.html">
         <div class="s-text">BFS</div>
         <div class="l-text">Breadth-First Search</div>
-    </a>
-    <a class="nav-item" href="dijkstra.html">
+      </a>
+      <a class="nav-item" href="dijkstra.html">
         <div class="s-text">Dijkstra</div>
         <div class="l-text">Dijkstra's Algorithm</div>
-    </a>
-    <a class="nav-item nav-active" href="astar.html">
+      </a>
+      <a class="nav-item nav-active" href="astar.html">
         <div class="s-text">A*</div>
         <div class="l-text">A* Heuristics</div>
-    </a>
-    <div class="nav-fill"></div>
-    <a class="nav-item" href="sources.html">
+      </a>
+      <div class="nav-fill"></div>
+      <a class="nav-item" href="sources.html">
         <div class="s-text"><i class="fa-solid fa-book"></i></div>
-        <div class="l-text"><i class="fa-solid fa-book"></i> Acknowledgements</div>
-    </a>
-    <a class="nav-item" href="https://github.com/encodeous/ICS3-2">
+        <div class="l-text">
+          <i class="fa-solid fa-book"></i> Acknowledgements
+        </div>
+      </a>
+      <a class="nav-item" href="https://github.com/encodeous/ICS3-2">
         <div class="s-text"><i class="fa-brands fa-github"></i></div>
-        <div class="l-text"><i class="fa-brands fa-github"></i> View on GitHub</div>
-    </a>
-</div>
-<div class="container tserra">
-    <div style="height: 49px;"></div>
-    <div class="hero hero-img tserra">
-        <p class="acrylic hero-cover">
-            A* Heuristics
-        </p>
+        <div class="l-text">
+          <i class="fa-brands fa-github"></i> View on GitHub
+        </div>
+      </a>
     </div>
-    <div class="divider"></div>
-    <div class="content">
+    <div class="container tserra">
+      <div style="height: 49px"></div>
+      <div class="hero hero-img tserra">
+        <p class="acrylic hero-cover">A* Heuristics</p>
+      </div>
+      <div class="divider"></div>
+      <div class="content">
         <div class="card" id="algo-sum">
-            <h3>Algorithm Summary</h3>
-            <hr>
-            <br>
-            <div class="c-section">
-                <strong>
-                    Difficulty:&nbsp;
-                </strong>
-                <div style="color: rgb(255, 200, 47)" class="fira">
-                    Medium
-                </div>
+          <h3>Algorithm Summary</h3>
+          <hr />
+          <br />
+          <div class="c-section">
+            <strong> Difficulty:&nbsp; </strong>
+            <div style="color: rgb(255, 200, 47)" class="fira">Medium</div>
+          </div>
+          <div class="c-section">
+            <strong> Limitation:&nbsp; </strong>
+            <div class="fira">Does not guarantee minimum cost path</div>
+          </div>
+          <div class="c-section">
+            <strong> Uses:&nbsp; </strong>
+            <div class="fira">
+              Able to find a short path in a small amount of time.
             </div>
-            <div class="c-section">
-                <strong>
-                    Limitation:&nbsp;
-                </strong>
-                <div class="fira">
-                    Does not guarantee minimum cost path
-                </div>
-            </div>
-            <div class="c-section">
-                <strong>
-                    Uses:&nbsp;
-                </strong>
-                <div class="fira">
-                    Able to find a short path in a small amount of time.
-                </div>
-            </div>
-            <div class="c-section">
-                <strong>
-                    Time Complexity:&nbsp;
-                </strong>
-                <div class="fira" style="font-style: oblique">
-                    Variable
-                </div>
-            </div>
-            <div class="c-section">
-                <strong>
-                    Developed By:&nbsp;
-                </strong>
-                <div id="dijkstra-hist" class="fira">
-                    Peter Hart et al. 1968
-                </div>
-            </div>
+          </div>
+          <div class="c-section">
+            <strong> Time Complexity:&nbsp; </strong>
+            <div class="fira" style="font-style: oblique">Variable</div>
+          </div>
+          <div class="c-section">
+            <strong> Developed By:&nbsp; </strong>
+            <div id="dijkstra-hist" class="fira">Peter Hart et al. 1968</div>
+          </div>
         </div>
         <h1 id="sect1">1. Improving perfection?</h1>
         <p class="p-text fira">
-            While dijkstra's shortest path algorithm is perfectly fine for finding shortest paths in small to medium-sized graphs, it is simply inadequate for large graphs. In these cases, we don't need to find the absolute most optimal path. A reasonably optimal path would suffice, therefore we can come up with some kind of metric that can measure how far a path is from achieving a goal. There are many <i>heuristics</i> that can be applied to solve this problem, each with different trade-offs. A common heuristic to use for path-finding is to use the euclidean distance between two nodes.
+          While dijkstra's shortest path algorithm is perfectly fine for finding
+          shortest paths in small to medium-sized graphs, it is simply
+          inadequate for large graphs. In these cases, we don't need to find the
+          absolute most optimal path. A reasonably optimal path would suffice,
+          therefore we can come up with some kind of metric that can measure how
+          far a path is from achieving a goal. There are many
+          <i>heuristics</i> that can be applied to solve this problem, each with
+          different trade-offs. A common heuristic to use for path-finding is to
+          use the euclidean distance between two nodes.
         </p>
         <h1 id="sect2">2. Hijacking Dijkstra's algorithm.</h1>
         <p class="p-text fira">
-            The A* Heuristics algorithm is simply an extension of Dijkstra's shortest path algorithm. As we have discussed before, Dijkstra sorts nodes based on their distance from the source node. What if we simply add our heuristic to that value? In fact, that is the core idea of A*. The algorithm attaches the heuristic weight of a node to the distance of the node, and runs dijkstra. This weight can be evaluated in many ways, for example with a heuristic function of the euclidean distance, the heuristic weight can be calculated with the pythagorean theorem. Other heuristics also exist, like using the manhattan distance.
+          The A* Heuristics algorithm is simply an extension of Dijkstra's
+          shortest path algorithm. As we have discussed before, Dijkstra sorts
+          nodes based on their distance from the source node. What if we simply
+          add our heuristic to that value? In fact, that is the core idea of A*.
+          The algorithm attaches the heuristic weight of a node to the distance
+          of the node, and runs dijkstra. This weight can be evaluated in many
+          ways, for example with a heuristic function of the euclidean distance,
+          the heuristic weight can be calculated with the pythagorean theorem.
+          Other heuristics also exist, like using the manhattan distance.
         </p>
         <h1 id="sect3">3. What does A* look like?</h1>
         <p class="p-text fira">
-            A* intrinsically looks the same as Dijkstra, but with an added heuristic weight parameter. This parameter is only included in the <i>Queue</i> of Dijkstra, and is not actually added to the distance of each node. Here is a visual representation of the differences between dijkstra and A*:
+          A* intrinsically looks the same as Dijkstra, but with an added
+          heuristic weight parameter. This parameter is only included in the
+          <i>Queue</i> of Dijkstra, and is not actually added to the distance of
+          each node. Here is a visual representation of the differences between
+          dijkstra and A*:
         </p>
         <div id="comparison">
-            <div>
-                <img class="w-img" src="resources/dijkstra.gif" alt="Dijkstra running on a grid">
-                <img class="w-img" src="resources/astar.gif" alt="A* running on a grid">
-            </div>
-            <p class="p-text fira">
-                Dijkstra is on the left, and A* is on the right.
-            </p>
+          <div>
+            <img
+              class="w-img"
+              src="resources/dijkstra.gif"
+              alt="Dijkstra running on a grid"
+            />
+            <img
+              class="w-img"
+              src="resources/astar.gif"
+              alt="A* running on a grid"
+            />
+          </div>
+          <p class="p-text fira">
+            Dijkstra is on the left, and A* is on the right.
+          </p>
         </div>
+      </div>
     </div>
-</div>
-</body>
-
+  </body>
 </html>
