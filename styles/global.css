@@ -21,6 +21,8 @@ html, body {
     margin-bottom: 100px;
 }
 
+/*Styling for hero image*/
+
 .hero-cover{
     height: 100%;
     width: 100%;
@@ -56,6 +58,8 @@ html, body {
     z-index: 100;
     background-color: rgba(89, 153, 227, 0.12);
 }
+
+/*Styling for Navigation Bar*/
 
 .nav-active{
     background-color: rgba(11, 71, 140, 0.26);
@@ -133,7 +137,10 @@ p a, .t-link{
     font-size: 11px;
 }
 
+/*Used for showing graphs*/
+
 .w-img{
+    /*Applies a filter on the image so I don't burn peoples eyes*/
     filter: invert(80%) sepia(6%) saturate(140%) hue-rotate(349deg) brightness(140%) contrast(88%);
     border-radius: 10px;
 }
@@ -169,6 +176,8 @@ p a, .t-link{
 
     }
 }
+
+/*Used for showing algorithm summary*/
 
 .card{
     background-color: #3d3d3c;
