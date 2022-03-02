@@ -33,7 +33,7 @@
         </a>
         <a class="nav-item" href="dijkstra.html">
             <div class="s-text">Dijkstra</div>
-            <div class="l-text">The Dijkstra Algorithm</div>
+            <div class="l-text">Dijkstra's Algorithm</div>
         </a>
         <a class="nav-item" href="astar.html">
             <div class="s-text">A*</div>
@@ -91,15 +91,15 @@
                         Time Complexity:&nbsp;
                     </strong>
                     <div class="fira" style="font-style: oblique">
-                        O(N)
+                        O(E + N)) where E is the number of edges, and N is the number of nodes.
                     </div>
                 </div>
             </div>
             <h1 id="sect1">1. What is Breadth-First Search?</h1>
             <p class="p-text fira">
                 Breadth-First Search, or BFS (which is what I will use to refer to this algorithm) provides a quick way
-                to search through an unweighted graph to find the shortest path. It operates in <i>O(N)</i> time, where
-                <i>N</i> is the number of nodes in the graph. However, this algorithm breaks when the distance between
+                to search through an unweighted graph to find the shortest path. It operates in <i>O(E + N)</i> time, where
+                <i>N</i> is the number of nodes in the graph, and where <i>E</i> is the number of connections. However, this algorithm stops working when the distance between
                 nodes are more than a cost of 1.
             </p>
             <h1 id="sect2">2. Applications of BFS</h1>

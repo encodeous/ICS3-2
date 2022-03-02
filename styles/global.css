@@ -23,9 +23,9 @@ html, body {
 
 .hero {
     background-attachment: fixed;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     color: white;
     font-size: 60px;
     display: flex;
@@ -107,6 +107,7 @@ html, body {
     line-height: 30px;
     font-size: 17px;
     font-weight: 400;
+    color: white;
 }
 
 i{
