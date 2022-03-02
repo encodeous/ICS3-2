@@ -21,11 +21,19 @@ html, body {
     margin-bottom: 100px;
 }
 
+.hero-cover{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero {
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     color: white;
     font-size: 60px;
     display: flex;
@@ -35,7 +43,7 @@ html, body {
 }
 
 .divider {
-    background-color: rgb(202, 202, 202);
+    background-color: rgb(48, 255, 195);
     height: 10px;
 }
 
@@ -46,10 +54,11 @@ html, body {
     width: 100%;
     position: fixed;
     z-index: 100;
+    background-color: rgba(89, 153, 227, 0.12);
 }
 
 .nav-active{
-    background-color: #464544;
+    background-color: rgba(11, 71, 140, 0.26);
 }
 
 .nav-fill {
@@ -75,7 +84,7 @@ html, body {
 }
 
 .content {
-    background-color: #464544;
+    background-color: #343433;
     color: white;
     margin: 0;
     padding: 20px 50px 20px 50px;

@@ -14,14 +14,12 @@
     <title>A* Heuristics | Graph Search Algorithms</title>
     <style>
         .hero-img {
-            background-image: url('resources/network.png');
+            background-image: url('resources/map2.jpg');
         }
-        .updated{
-            color: #07e107;
-        }
-        .removed{
-            color: red;
-            text-decoration: line-through;
+        #comparison{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -58,8 +56,8 @@
 </div>
 <div class="container tserra">
     <div style="height: 49px;"></div>
-    <div class="hero hero hero-img tserra">
-        <p class="acrylic-lite" style="padding: 25px">
+    <div class="hero hero-img tserra">
+        <p class="acrylic hero-cover">
             A* Heuristics
         </p>
     </div>
@@ -73,8 +71,8 @@
                 <strong>
                     Difficulty:&nbsp;
                 </strong>
-                <div style="color: rgb(255,85,47)" class="fira">
-                    Medium-Advanced
+                <div style="color: rgb(255, 200, 47)" class="fira">
+                    Medium
                 </div>
             </div>
             <div class="c-section">
@@ -98,7 +96,7 @@
                     Time Complexity:&nbsp;
                 </strong>
                 <div class="fira" style="font-style: oblique">
-                    O(E*log(N)) where E is the number of edges, and N is the number of nodes.
+                    Variable
                 </div>
             </div>
             <div class="c-section">
@@ -106,270 +104,31 @@
                     Developed By:&nbsp;
                 </strong>
                 <div id="dijkstra-hist" class="fira">
-                    Edsgar Dijkstra, 1959
+                    Peter Hart et al. 1968
                 </div>
             </div>
         </div>
-        <h1 id="sect1">1. What is Dijkstra's Algorithm?</h1>
+        <h1 id="sect1">1. Improving perfection?</h1>
         <p class="p-text fira">
-            Dijkstra's Shortest Path Algorithm, or just known as djikstra, is an algorithm that is able to find the shortest path on a <i>weighted</i> graph. This is different from BFS where the graph must be unweighted. Dijkstra is able to work on graphs with non-uniform weights, and thus is much more useful in the real world. However, this comes at a cost of the performance of the algorithm. Previously, BFS has a time complexity of <i>O(E + N)</i>, which means the time the algorithm takes scales linearly with input. Dijkstra, however, has a time complexity of <i>O(E*log(N))</i>, meaning that it still scales linearly, but now has a logarithmic factor. <i>Note: In time complexity analysis, the base of the log does not matter.</i>
+            While dijkstra's shortest path algorithm is perfectly fine for finding shortest paths in small to medium-sized graphs, it is simply inadequate for large graphs. In these cases, we don't need to find the absolute most optimal path. A reasonably optimal path would suffice, therefore we can come up with some kind of metric that can measure how far a path is from achieving a goal. There are many <i>heuristics</i> that can be applied to solve this problem, each with different trade-offs. A common heuristic to use for path-finding is to use the euclidean distance between two nodes.
         </p>
-        <h1 id="sect2">2. Applications of Dijkstra's Algorithm</h1>
+        <h1 id="sect2">2. Hijacking Dijkstra's algorithm.</h1>
         <p class="p-text fira">
-            As we have previously discussed for BFS, graph search algorithms are able to traverse through graphs. With dijkstra, we are now able to find the paths on weighted nodes. With this newfound power, we are now able to enter the real world. With weighted edges, it is now possible to map real-world points into nodes, and find the distances between them. Think about the path finding algorithm used in car navigation. It needs to be able to determine a route in non-trival scenarios. For example, the distance between two intersections could be a different, meaning that taking one edge could result in a shorter distance than another. With dijkstra, it is possible to simply express the distance travelled between intersections as different weights on two edges.
+            The A* Heuristics algorithm is simply an extension of Dijkstra's shortest path algorithm. As we have discussed before, Dijkstra sorts nodes based on their distance from the source node. What if we simply add our heuristic to that value? In fact, that is the core idea of A*. The algorithm attaches the heuristic weight of a node to the distance of the node, and runs dijkstra. This weight can be evaluated in many ways, for example with a heuristic function of the euclidean distance, the heuristic weight can be calculated with the pythagorean theorem. Other heuristics also exist, like using the manhattan distance.
         </p>
-        <h1 id="sect3">3. How does Dijkstra's Algorithm work?</h1>
+        <h1 id="sect3">3. What does A* look like?</h1>
         <p class="p-text fira">
-            Dijkstra works in a similar way to BFS. Dijkstra searches adjacent nodes, and visits them. But compared to BFS, dijkstra visits the nodes in a different order. It searches through the graph <i>greedily</i> by visiting the node with the shortest distance first. Additionally, dijkstra introduces a new concept called <i>edge relaxation</i>. Edge relaxation repeatedly minimizes the path to a certain node until it is optimal.  When a node is considered as visited, the node propagates its own weights to the surrounding nodes. If the weight from the starting node <i>S</i> to the current node <i>C</i> + the weight of the edge from <i>C</i> to the adjacent node <i>A</i> is <b>more optimal</b> than the path from <i>S</i> to <i>A</i>, then node <i>A</i>'s path can be rerouted through <i>C</i> to attain a better answer. This process of relaxing the edges and visiting shortest nodes is repeated until all nodes and paths are exhausted. At the end, the minimal path is achieved.
+            A* intrinsically looks the same as Dijkstra, but with an added heuristic weight parameter. This parameter is only included in the <i>Queue</i> of Dijkstra, and is not actually added to the distance of each node. Here is a visual representation of the differences between dijkstra and A*:
         </p>
-        <h1 id="sect4">4. A visual demonstration</h1>
-        <p class="p-text fira">
-            Here is the graph that is shown on the homepage. We will run Dijkstra's algorithm to find the shortest path between nodes <i>1</i> and <i>3</i>
-        </p>
-        <p class="p-text">Initial State</p>
-        <div class="img-wrapper">
-            <img class="w-img" src="resources/graph_dij_1.png" alt="A Graph">
-            <p class="caption">
-                We will start off at node 1, and explore our neighbours. Here is our current state:
+        <div id="comparison">
+            <div>
+                <img class="w-img" src="resources/dijkstra.gif" alt="Dijkstra running on a grid">
+                <img class="w-img" src="resources/astar.gif" alt="A* running on a grid">
+            </div>
+            <p class="p-text fira">
+                Dijkstra is on the left, and A* is on the right.
             </p>
-            <table class="p-text">
-                <tr>
-                    <th>Node</th>
-                    <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                </tr>
-                <tr>
-                    <td>Distance</td>
-                    <td>∞</td>
-                    <td class="updated">0</td>
-                    <td>∞</td>
-                    <td>∞</td>
-                    <td>∞</td>
-                    <td>∞</td>
-                </tr>
-            </table>
         </div>
-        <p class="p-text">Explore Node 1's Neighbours</p>
-        <div class="img-wrapper">
-            <img class="w-img" src="resources/graph_dij_1.png" alt="A Graph">
-            <p class="caption">
-            </p>
-            <table class="p-text">
-                <tr>
-                    <th>Node</th>
-                    <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                </tr>
-                <tr>
-                    <td>Distance</td>
-                    <td>∞</td>
-                    <td>0</td>
-                    <td>∞</td>
-                    <td>∞</td>
-                    <td class="updated">7</td>
-                    <td class="updated">9</td>
-                </tr>
-            </table>
-            <table class="p-text">
-                <tr>
-                    <td>Queue</td>
-                    <th>{Node=4, Dist=7}</th>
-                    <td>{Node=5, Dist=9}</td>
-                </tr>
-            </table>
-        </div>
-        <p class="p-text">Visit Node 4 & Explore Neighbours</p>
-        <div class="img-wrapper">
-            <img class="w-img" src="resources/graph_dij_2.png" alt="A Graph">
-            <p class="caption">
-                Notice, node 5 is not visited from node 4 because 7 + 3 > 9
-            </p>
-            <table class="p-text">
-                <tr>
-                    <th>Node</th>
-                    <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                </tr>
-                <tr>
-                    <td>Distance</td>
-                    <td class="updated">39</td>
-                    <td>0</td>
-                    <td class="updated">14</td>
-                    <td>∞</td>
-                    <td>7</td>
-                    <td>9</td>
-                </tr>
-            </table>
-            <table class="p-text">
-                <tr>
-                    <td>Queue</td>
-                    <th>{Node=5, Dist=9}</th>
-                    <td>{Node=2, Dist=14}</td>
-                    <td>{Node=0, Dist=39}</td>
-                </tr>
-            </table>
-        </div>
-        <p class="p-text">Visit Node 5 & Explore Neighbours</p>
-        <div class="img-wrapper">
-            <img class="w-img" src="resources/graph_dij_3.png" alt="A Graph">
-            <p class="caption">
-                Notice, node 4 is not visited because 9 + 3 > 7. Additionally, we have found a shorter path to node 0 through edge relaxation. 9 + 2 < 7 + 32.
-            </p>
-            <table class="p-text">
-                <tr>
-                    <th>Node</th>
-                    <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                </tr>
-                <tr>
-                    <td>Distance</td>
-                    <td class="updated">11</td>
-                    <td>0</td>
-                    <td>14</td>
-                    <td>∞</td>
-                    <td>7</td>
-                    <td>9</td>
-                </tr>
-            </table>
-            <table class="p-text">
-                <tr>
-                    <td>Queue</td>
-                    <th>{Node=0, Dist=11}</th>
-                    <td>{Node=2, Dist=14}</td>
-                    <td class="removed">{Node=0, Dist=39}</td>
-                </tr>
-            </table>
-        </div>
-        <p class="p-text">Visit Node 0 & Explore Neighbours</p>
-        <div class="img-wrapper">
-            <img class="w-img" src="resources/graph_dij_4.png" alt="A Graph">
-            <p class="caption">
-                In this iteration, we have found a shorter path to node 2 through node 0. We do not visit node 4 because 11 + 32 > 7.
-            </p>
-            <table class="p-text">
-                <tr>
-                    <th>Node</th>
-                    <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                </tr>
-                <tr>
-                    <td>Distance</td>
-                    <td>11</td>
-                    <td>0</td>
-                    <td class="updated">12</td>
-                    <td>∞</td>
-                    <td>7</td>
-                    <td>9</td>
-                </tr>
-            </table>
-            <table class="p-text">
-                <tr>
-                    <td>Queue</td>
-                    <th>{Node=2, Dist=12}</th>
-                    <td class="removed">{Node=2, Dist=14}</td>
-                </tr>
-            </table>
-        </div>
-        <p class="p-text">Visit Node 2 & Explore Neighbours</p>
-        <div class="img-wrapper">
-            <img class="w-img" src="resources/graph_dij_5.png" alt="A Graph">
-            <p class="caption">
-                We have found our ending node, but we should still iterate until our queue is empty. This ensures that we truly have the shortest path.
-            </p>
-            <table class="p-text">
-                <tr>
-                    <th>Node</th>
-                    <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                </tr>
-                <tr>
-                    <td>Distance</td>
-                    <td>11</td>
-                    <td>0</td>
-                    <td>12</td>
-                    <td class="updated">15</td>
-                    <td>7</td>
-                    <td>9</td>
-                </tr>
-            </table>
-            <table class="p-text">
-                <tr>
-                    <td>Queue</td>
-                    <th>{Node=3, Dist=15}</th>
-                </tr>
-            </table>
-        </div>
-        <p class="p-text">Visit Node 3 & Explore Neighbours</p>
-        <div class="img-wrapper">
-            <img class="w-img" src="resources/graph_dij_5.png" alt="A Graph">
-            <p class="caption">
-                At node 3, we can no longer discover any further paths, and the algorithm terminates.
-            </p>
-            <table class="p-text">
-                <tr>
-                    <th>Node</th>
-                    <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                </tr>
-                <tr>
-                    <td>Distance</td>
-                    <td>11</td>
-                    <td>0</td>
-                    <td>12</td>
-                    <td>15</td>
-                    <td>7</td>
-                    <td>9</td>
-                </tr>
-            </table>
-            <table class="p-text">
-                <tr>
-                    <td>Queue</td>
-                    <th>Empty</th>
-                </tr>
-            </table>
-        </div>
-        <h1 id="sect5">5. An interesting observation</h1>
-        <p class="p-text fira">
-            Phew, that was a lot of typing. Hopefully you followed along. But there are some interesting observations... Can you spot them? —Well, I will show them to you anyways.
-        </p>
-        <p class="p-text fira">
-            1. The nodes are never visited again once they are taken from the queue, meaning that once a node is at the front of the queue, the distance is already determined.
-        </p>
-        <p class="p-text fira">
-            2. Notice the distance array. It turns out that Dijkstra's algorithm actually finds the minimal distance to <i>ALL</i> nodes. This can be helpful in reducing re-calculations when calculating the distance from a fixed source.
-        </p>
-        <h1 id="sect6">6. Next steps?</h1>
-        <p class="p-text fira">
-            In order to use a path-finding algorithm in the real world, it needs to be able to handle the massive amount of data that the world stores. Think about how many intersections there are in a city. Dijkstra simply is not fast enough to power the navigation tools that we rely on. This is where heuristic algorithms come in to save the day.
-        </p>
     </div>
 </div>
 </body>
